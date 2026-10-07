@@ -27,3 +27,14 @@ jobs:
 
       - name: Build firmware
         run: pio run
+
+      - name: Upload firmware artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: sterownik-pomp-esp32
+          path: |
+            .pio/build/esp32dev/firmware.bin
+            .pio/build/esp32dev/bootloader.bin
+            .pio/build/esp32dev/partitions.bin
+          if-no-files-found: error
+          retention-days: 30
