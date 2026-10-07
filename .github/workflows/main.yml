@@ -26,4 +26,4 @@ jobs:
         run: pio run -t clean
 
       - name: Build firmware
-        run: pio run -v
+        run: pio run
